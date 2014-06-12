@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fmod_geometry", "fmod_geometry.vcxproj", "{D5145E22-018C-B942-B6D7-C7BAE516502E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release_FMOD_debug|Win32 = Release_FMOD_debug|Win32
+		Release_MT|Win32 = Release_MT|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5145E22-018C-B942-B6D7-C7BAE516502E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D5145E22-018C-B942-B6D7-C7BAE516502E}.Debug|Win32.Build.0 = Debug|Win32
+		{D5145E22-018C-B942-B6D7-C7BAE516502E}.Release_FMOD_debug|Win32.ActiveCfg = Release_FMOD_debug|Win32
+		{D5145E22-018C-B942-B6D7-C7BAE516502E}.Release_FMOD_debug|Win32.Build.0 = Release_FMOD_debug|Win32
+		{D5145E22-018C-B942-B6D7-C7BAE516502E}.Release_MT|Win32.ActiveCfg = Release_MT|Win32
+		{D5145E22-018C-B942-B6D7-C7BAE516502E}.Release_MT|Win32.Build.0 = Release_MT|Win32
+		{D5145E22-018C-B942-B6D7-C7BAE516502E}.Release|Win32.ActiveCfg = Release|Win32
+		{D5145E22-018C-B942-B6D7-C7BAE516502E}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
