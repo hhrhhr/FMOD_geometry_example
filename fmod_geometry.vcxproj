@@ -231,14 +231,15 @@
     <ClInclude Include="include\fmod.h" />
     <ClInclude Include="include\fmod.hpp" />
     <ClInclude Include="include\fmod_codec.h" />
+    <ClInclude Include="include\fmod_common.h" />
     <ClInclude Include="include\fmod_dsp.h" />
+    <ClInclude Include="include\fmod_dsp_effects.h" />
     <ClInclude Include="include\fmod_errors.h" />
     <ClInclude Include="include\fmod_memoryinfo.h" />
     <ClInclude Include="include\fmod_output.h" />
     <ClInclude Include="include\gl\freeglut.h" />
     <ClInclude Include="include\gl\freeglut_ext.h" />
     <ClInclude Include="include\gl\freeglut_std.h" />
-    <ClInclude Include="include\gl\glut_ori.h" />
     <ClInclude Include="src\audio.h" />
     <ClInclude Include="src\model.h" />
     <ClInclude Include="src\pch.h" />

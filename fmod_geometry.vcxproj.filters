@@ -71,10 +71,13 @@
     <ClInclude Include="include\gl\freeglut_std.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gl\glut_ori.h">
+    <ClInclude Include="src\pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\pch.h">
+    <ClInclude Include="include\fmod_common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\fmod_dsp_effects.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
