@@ -9,7 +9,6 @@
 #include <string.h>
 #include <math.h>
 #include <malloc.h>
-//#include <time.h>
 
 #include "fmod.hpp"
 #include "fmod_errors.h"
@@ -20,6 +19,8 @@
 #include "audio.h"
 
 extern float INTERFACE_UPDATETIME;
+
+const int NUM_OBJECTS = 7;
 
 // window size
 extern int width;

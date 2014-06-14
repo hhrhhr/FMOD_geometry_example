@@ -1,41 +1,39 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-const int NUM_OBJECTS = 7;
-
 // sounds placement
 struct Object
 {
-	float xPos;
-	float yPos;
-	float zPos;
-	float intensity;
-	int sound;
-	FMOD::Channel *channel;
+    float xPos;
+    float yPos;
+    float zPos;
+    float intensity;
+    int sound;
+    FMOD::Channel *channel;
 };
 
 Object objects[];
 
-// geometry structers for loading and drawing
+// geometry structures for loading and drawing
 struct Poly
 {
-	int numVertices;
-	int indicesOffset;
-	float directOcclusion;
-	float reverbOcclusion;
-	FMOD_VECTOR normal;
+    int numVertices;
+    int indicesOffset;
+    float directOcclusion;
+    float reverbOcclusion;
+    FMOD_VECTOR normal;
 };
 
 struct Mesh
 {
-	int numVertices;
-	FMOD_VECTOR *vertices;
-	float (*texcoords)[2];
-	int numPolygons;
-	Poly* polygons;
-	int numIndices;
-	int *indices;
-	FMOD::Geometry *geometry;
+    int numVertices;
+    FMOD_VECTOR *vertices;
+    float (*texcoords)[2];
+    int numPolygons;
+    Poly* polygons;
+    int numIndices;
+    int *indices;
+    FMOD::Geometry *geometry;
 };
 
 extern Mesh walls;
