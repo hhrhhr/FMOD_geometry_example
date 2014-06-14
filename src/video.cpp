@@ -173,12 +173,11 @@ void idle()
         fpsCounter = 0;
     }
 
-    FMOD_RESULT result;
     doGeometryMovement();
     doSoundMovement();
     doListenerMovement();
-    result = fmodSystem->update();
-    ERRCHECK(result);
+
+    ERRCHECK(fmodSystem->update());
 
 
     float dsp, stream, geom, update, total;
