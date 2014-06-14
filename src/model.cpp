@@ -26,16 +26,16 @@ void initGeometry(const char* szFileName, Mesh& mesh)
         return;
     } else {
         // read vertices
-        fread(&mesh.numVertices, sizeof (mesh.numVertices), 1, file);	
+        fread(&mesh.numVertices, sizeof (mesh.numVertices), 1, file);
         mesh.vertices = new FMOD_VECTOR[mesh.numVertices];
         mesh.texcoords = new float[mesh.numVertices][2];
-        fread(mesh.vertices, sizeof (float) * 3, mesh.numVertices, file);	
-        fread(mesh.texcoords, sizeof (float) * 2, mesh.numVertices, file);	
+        fread(mesh.vertices, sizeof (float) * 3, mesh.numVertices, file);
+        fread(mesh.texcoords, sizeof (float) * 2, mesh.numVertices, file);
 
         // read 
         fread(&mesh.numIndices, sizeof (mesh.numIndices), 1, file);
         mesh.indices = new int[mesh.numIndices];
-        fread(mesh.indices, sizeof (int), mesh.numIndices, file);	
+        fread(mesh.indices, sizeof (int), mesh.numIndices, file);
 
         // read
         fread(&mesh.numPolygons, sizeof (mesh.numPolygons), 1, file);
@@ -51,7 +51,7 @@ void initGeometry(const char* szFileName, Mesh& mesh)
             fread(&polygon->directOcclusion, sizeof (polygon->directOcclusion), 1, file);
             fread(&polygon->reverbOcclusion, sizeof (polygon->reverbOcclusion), 1, file);
 
-            int* indices = &mesh.indices[polygon->indicesOffset];			
+            int* indices = &mesh.indices[polygon->indicesOffset];
 
             // calculate polygon normal
             float xN = 0.0f;
@@ -69,7 +69,7 @@ void initGeometry(const char* szFileName, Mesh& mesh)
                 xN += yA * zB - zA * yB;
                 yN += zA * xB - xA * zB;
                 zN += xA * yB - yA * xB;
-            }	
+            }
             float fMagnidued = (float)sqrt(xN * xN + yN * yN + zN * zN);
             if (fMagnidued > 0.0f) { // a tollerance here might be called for
                 xN /= fMagnidued;
@@ -81,7 +81,7 @@ void initGeometry(const char* szFileName, Mesh& mesh)
             polygon->normal.z = zN;
         }
         fclose(file);
-    }	
+    }
 
     result = fmodSystem->createGeometry(mesh.numPolygons, mesh.numIndices, &mesh.geometry);
     ERRCHECK(result);
