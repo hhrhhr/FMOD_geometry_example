@@ -3,9 +3,9 @@
 
 class GlutCloseClass
 {
-  public:
+public:
     GlutCloseClass() {};
-   ~GlutCloseClass();
+    ~GlutCloseClass();
 };
 
 GlutCloseClass gCloseObject;
