@@ -36,10 +36,6 @@ struct Mesh
     FMOD::Geometry *geometry;
 };
 
-extern Mesh walls;
-extern Mesh rotatingMesh;
-extern Mesh doorList[];
-
 void initGeometry(const char* szFileName, Mesh& mesh);
 void modelInit();
 void freeGeometry(Mesh& mesh);

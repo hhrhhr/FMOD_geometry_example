@@ -20,11 +20,11 @@ void initGeometry(const char* szFileName, Mesh& mesh)
     FILE* file;
     errno_t err = fopen_s(&file, szFileName, "rb");
     if (err != 0) {
-        printf("The file %s was not opened\n", szFileName);
+        printf("The file %s was not opened (%i)\n", szFileName, err);
         return;
     } else {
         // read vertices
-        fread(&mesh.numVertices, sizeof (mesh.numVertices), 1, file);
+        fread(&mesh.numVertices, sizeof(mesh.numVertices), 1, file);
         mesh.vertices = new FMOD_VECTOR[mesh.numVertices];
         mesh.texcoords = new float[mesh.numVertices][2];
         fread(mesh.vertices, sizeof (float) * 3, mesh.numVertices, file);

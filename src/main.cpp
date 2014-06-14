@@ -26,17 +26,13 @@ int height = 480;
 int window_pos_x = 200;
 int window_pos_y = 50;
 
-float accumulatedTime = 0.0f;
-float INTERFACE_UPDATETIME = 16.67f; // milliseconds
-
 //debug text
 unsigned int useFont = 1; // 0 - no, 1 - stroke, 2 - bitmap;
 
 
 void mouseFunc(int button, int state, int x, int y)
 {
-    switch (button)
-    {
+    switch (button) {
     case GLUT_LEFT_BUTTON:
         if (state == GLUT_DOWN) {
             doRotate = true;
@@ -58,20 +54,14 @@ void motionFunc(int x, int y)
 
     // view rotation about y-axis
     yRotation += (float)dx * 0.5f;
-    if (yRotation > 180.0f)
-        yRotation -= 360.0f;
-    else
-        if (yRotation < -180.0f)
-            yRotation += 360.0f;
+    if (yRotation > 180.0f) yRotation -= 360.0f;
+    if (yRotation < -180.0f) yRotation += 360.0f;
 
     // view rotation about x-axis
     const float xExtent = 88.0f;
     xRotation += (float)dy * 0.5f;
-    if (xRotation > xExtent)
-        xRotation = xExtent;
-    else
-        if (xRotation < -xExtent)
-            xRotation = -xExtent;
+    if (xRotation > xExtent) xRotation = xExtent;
+    if (xRotation < -xExtent) xRotation = -xExtent;
 
     xMouse = x;
     yMouse = y;
@@ -80,7 +70,6 @@ void motionFunc(int x, int y)
 void keyboardFunc(unsigned char key, int x, int y)
 {
     (void)x; (void)y;
-    //printf("'%c' pressed at (%i,%i) \n", key, x, y);
     switch(key) {
     case 'W':
     case 'w': moveForward = true; break;
@@ -100,7 +89,6 @@ void keyboardFunc(unsigned char key, int x, int y)
 void keyboardUpFunc(unsigned char key, int x, int y)
 {
     (void)x; (void)y;
-    //printf("'%c' up at (%i,%i) \n", key, x, y);
     switch(key) {
     case 'W':
     case 'w': moveForward = false; break;
@@ -120,7 +108,6 @@ void keyboardUpFunc(unsigned char key, int x, int y)
 void specialFunc(int s, int x, int y)
 {
     (void)x; (void)y;
-    //printf("'%i' pressed at (%i,%i) \n", s, x, y);
     switch(s) {
     case 112: isRun = true; break;
     }
@@ -129,7 +116,6 @@ void specialFunc(int s, int x, int y)
 void specialFuncUp(int s, int x, int y)
 {
     (void)x; (void)y;
-    //printf("'%i' up at (%i,%i) \n", s, x, y);
     switch(s) {
     case 112: isRun = false; break;
     }
@@ -170,8 +156,7 @@ int main(int argc, char **argv)
     glutInitWindowPosition(window_pos_x, window_pos_y);
     glutCreateWindow("FMOD Geometry example.");
 
-    if (!enableVSync(1))
-        printf("VSync not enabled\n");
+    if (!enableVSync(1)) printf("VSync not enabled\n");
 
     glutReshapeFunc(reshapeFunc);
     glutDisplayFunc(display);
@@ -190,4 +175,3 @@ int main(int argc, char **argv)
 
     return 0;
 }
-

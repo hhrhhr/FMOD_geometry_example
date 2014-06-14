@@ -163,8 +163,8 @@ void idle()
     float delta = currTime - prevTime;
 
     if (delta > 1000.0f) {
-        INTERFACE_UPDATETIME = delta / (float)fpsCounter;
-        fps = 1000.0f / INTERFACE_UPDATETIME;
+        interfaceUpdatTime = delta / (float)fpsCounter;
+        fps = 1000.0f / interfaceUpdatTime;
         prevTime = currTime;
         fpsCounter = 0;
     }
@@ -208,7 +208,7 @@ void display(void)
 
     // clear
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glClearColor(0.4, 0.6f, 1.0f, 0.0f);
+    glClearColor(0.4f, 0.6f, 1.0f, 0.0f);
 
     // draw geometry
     glEnable(GL_TEXTURE_2D);
