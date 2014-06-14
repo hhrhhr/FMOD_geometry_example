@@ -21,6 +21,7 @@
 extern float INTERFACE_UPDATETIME;
 
 const int NUM_OBJECTS = 7;
+const int NUM_SOUNDS = 4;
 
 // window size
 extern int width;

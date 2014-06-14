@@ -2,7 +2,7 @@
 
 GLuint texture;
 
-GLuint loadTexture(const char * filename)
+GLuint loadTexture(const char *filename)
 {
     GLuint texture;
     int width;
@@ -12,8 +12,7 @@ GLuint loadTexture(const char * filename)
 
     // open texture data
     errno_t err = fopen_s(&file, filename, "rb");
-    if (err != 0)
-        return 0;
+    if (err != 0) return 0;
 
     width = 128;
     height = 128;
@@ -64,19 +63,15 @@ void videoInit()
 
 void drawGeometry(Mesh& mesh)
 {
-    FMOD_RESULT result;
-
     FMOD_VECTOR pos;
-    result = mesh.geometry->getPosition(&pos);
-    ERRCHECK(result);
+    ERRCHECK(mesh.geometry->getPosition(&pos));
 
     glPushMatrix();
     // create matrix and set gl transformation for geometry
     glTranslatef(pos.x, pos.y, pos.z);
     FMOD_VECTOR forward;
     FMOD_VECTOR up;
-    result = mesh.geometry->getRotation(&forward, &up);
-    ERRCHECK(result);
+    ERRCHECK(mesh.geometry->getRotation(&forward, &up));
     float matrix[16] = {
         up.y * forward.z - up.z * forward.y, up.x, forward.x, 0.0f,
         up.z * forward.x - up.x * forward.z, up.y, forward.y, 0.0f,
@@ -135,17 +130,18 @@ static void glPrintF (int row, int col, const char *fmt, ...)
     glColor3f(1.0, 1.0, 0.0);
     switch(useFont) {
     case 1:
-        //StrokeString
+        //StrokeString, very fast
         glTranslatef(charWidth * col, height - charHeight * row, 0.0);
         glScalef(scale, scale, 1);
         glutStrokeString(strokeFont, (const unsigned char*)buf);
         break;
     case 2:
-        //BitmapString
+        //BitmapString, high CPU load
         glRasterPos2i(glutBitmapWidth(bitmapFont, ' ') * col, height - glutBitmapHeight(bitmapFont) * row);
         glutBitmapString (bitmapFont, (const unsigned char*)buf);
         break;
     default:
+        //disable
         break;
     }
     glEnable(GL_LIGHTING);
@@ -178,7 +174,6 @@ void idle()
     doListenerMovement();
 
     ERRCHECK(fmodSystem->update());
-
 
     float dsp, stream, geom, update, total;
     int channels;
@@ -218,14 +213,12 @@ void display(void)
     // draw geometry
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, texture);
-
-    drawGeometry(walls);
-    drawGeometry(rotatingMesh);
-    drawGeometry(doorList[0]);
-    drawGeometry(doorList[1]);
-    drawGeometry(doorList[2]);
-    drawGeometry(doorList[3]);
-
+        drawGeometry(walls);
+        drawGeometry(rotatingMesh);
+        drawGeometry(doorList[0]);
+        drawGeometry(doorList[1]);
+        drawGeometry(doorList[2]);
+        drawGeometry(doorList[3]);
     glDisable(GL_TEXTURE_2D);
 
     // draw sound objects
@@ -271,10 +264,10 @@ GlutCloseClass::~GlutCloseClass()
     freeGeometry(doorList[2]);
     freeGeometry(doorList[3]);
 
-    sounds[0]->release();
-    sounds[1]->release();
-    sounds[2]->release();
-    sounds[3]->release();
+    sound[0].snd->release();
+    sound[1].snd->release();
+    sound[2].snd->release();
+    sound[3].snd->release();
 
     fmodSystem->release();
 }

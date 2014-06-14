@@ -17,8 +17,6 @@ Mesh doorList[4];
 
 void initGeometry(const char* szFileName, Mesh& mesh)
 {
-    FMOD_RESULT result;
-
     FILE* file;
     errno_t err = fopen_s(&file, szFileName, "rb");
     if (err != 0) {
@@ -83,8 +81,7 @@ void initGeometry(const char* szFileName, Mesh& mesh)
         fclose(file);
     }
 
-    result = fmodSystem->createGeometry(mesh.numPolygons, mesh.numIndices, &mesh.geometry);
-    ERRCHECK(result);
+    ERRCHECK(fmodSystem->createGeometry(mesh.numPolygons, mesh.numIndices, &mesh.geometry));
 
     for (int poly = 0; poly < mesh.numPolygons; poly++)
     {
@@ -97,9 +94,8 @@ void initGeometry(const char* szFileName, Mesh& mesh)
 
         int polygonIndex = 0;
 
-        result = mesh.geometry->addPolygon(polygon->directOcclusion, polygon->reverbOcclusion, false, // single sided
-            polygon->numVertices, vertices, &polygonIndex);
-        ERRCHECK(result);
+        ERRCHECK(mesh.geometry->addPolygon(polygon->directOcclusion, polygon->reverbOcclusion, false, // single sided
+            polygon->numVertices, vertices, &polygonIndex));
     }
 }
 
