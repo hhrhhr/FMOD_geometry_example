@@ -238,7 +238,6 @@
     <ClInclude Include="include\gl\freeglut.h" />
     <ClInclude Include="include\gl\freeglut_ext.h" />
     <ClInclude Include="include\gl\freeglut_std.h" />
-    <ClInclude Include="include\gl\glut_ori.h" />
     <ClInclude Include="src\audio.h" />
     <ClInclude Include="src\model.h" />
     <ClInclude Include="src\pch.h" />
